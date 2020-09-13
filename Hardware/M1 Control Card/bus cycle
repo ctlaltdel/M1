@@ -1,0 +1,40 @@
+
+Note: nPCOE AND nADROE for 'valid address' indication i.e. address selection enable
+
+INIT
+1. Toggle nPCRST L->H to reset PC
+
+GET SOURCE ADDRESS
+1. Clk H->L : nPCOE->L to place PC onto address bus, RDnWR->H to place data onto data bus, nADRHI->L to prep ADDRESS register high byte loading, PCINC->L
+2. Clk L->H : 
+3. Clk H->L : nADRHI->H to load data into ADDRESS register high byte, PCINC->H , nADRLO->L to prep ADDRESS register low byte loading
+4. Clk L->H : 
+
+5. Clk H->L :  
+6. Clk L->H : 
+7. Clk H->L : nADRLO->H to load data into ADDRESS register low byte
+8. Clk L->H : nPCOE->H
+
+GET SOURCE DATA
+1. Clk H->L : nADROE->L to place SOURCE address onto address bus, RDnWR->H to place data onto data bus, nTMPLD->L, PCINC->L 
+2. Clk L->H : 
+3. Clk H->L : nTMPLD->H to load data into TEMP register, PCINC->H
+4. Clk L->H : nADROE->H 
+
+GET DESTINATION ADDRESS
+1. Clk H->L : nPCOE->L to place PC onto address bus, RDnWR->H to place data onto data bus, nADRHI->L, PCINC->L
+2. Clk L->H : 
+3. Clk H->L : nADRHI->H to load data into ADDRESS register high byte, PCINC->H , nADRLO->L to prep ADDRESS register low byte loading  
+4. Clk L->H : 
+
+5. Clk H->L : 
+6. Clk L->H : 
+7. Clk H->L : nADRLO->H to load data into ADDRESS register low byte
+8. Clk L->H : nPCOE->H
+
+WRITE DESTINATION DATA
+1. Clk H->L : nADROE->L to place SOURCE address onto address bus, nTMPOE->L to place data onto data bus , RDnWR->L to write data, PCINC->L
+2. Clk L->H : 
+3. Clk H->L : RDnWR->H, PCINC->H
+4. Clk L->H : nADROE->H
+

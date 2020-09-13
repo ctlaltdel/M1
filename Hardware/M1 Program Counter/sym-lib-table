@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name MSeries)(type Legacy)(uri /home/ajs/Projects/OISC/Hardware/MSeries.lib)(options "")(descr ""))
+)

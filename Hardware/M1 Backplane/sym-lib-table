@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name daqiri)(type Legacy)(uri ${KIPRJMOD}/daqiri.lib)(options "")(descr ""))
+  (lib (name MSeries)(type Legacy)(uri /home/ajs/Projects/OISC/Hardware/MSeries.lib)(options "")(descr ""))
+)

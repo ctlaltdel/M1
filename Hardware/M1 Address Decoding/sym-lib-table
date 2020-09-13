@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name M1-Address-Register-rescue)(type Legacy)(uri "${KIPRJMOD}/M1 Address Register-rescue.lib")(options "")(descr ""))
+  (lib (name M1-Temp-Register-rescue)(type Legacy)(uri "${KIPRJMOD}/M1 Temp Register-rescue.lib")(options "")(descr ""))
+  (lib (name M1-Address-Decoding-rescue)(type Legacy)(uri "${KIPRJMOD}/M1 Address Decoding-rescue.lib")(options "")(descr ""))
+)

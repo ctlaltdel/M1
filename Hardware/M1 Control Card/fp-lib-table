@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "M1 Control Card")(type KiCad)(uri "/home/ajs/Projects/OISC/Hardware/M1 Control Card")(options "")(descr ""))
+)

@@ -1,0 +1,18 @@
+(module VG2 (layer F.Cu) (tedit 5EED9161)
+  (fp_text reference J53 (at 0 7.112) (layer F.SilkS) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value VG2-4 (at 0.127 -7.366) (layer F.Fab) hide
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_line (start -6.05 -10.35) (end 6.05 -10.35) (layer F.SilkS) (width 0.15))
+  (fp_line (start -6.05 -10.35) (end -6.05 4.85) (layer F.SilkS) (width 0.15))
+  (fp_line (start 6.05 -10.35) (end 6.05 4.85) (layer F.SilkS) (width 0.15))
+  (fp_line (start -0.95 2.05) (end -0.95 4.85) (layer Dwgs.User) (width 0.12))
+  (fp_line (start 0.95 2.05) (end 0.95 4.85) (layer Dwgs.User) (width 0.12))
+  (fp_line (start -0.95 2.05) (end 0.95 2.05) (layer Dwgs.User) (width 0.12))
+  (fp_line (start -6.05 4.85) (end -2 4.85) (layer F.SilkS) (width 0.15))
+  (fp_line (start 6.05 4.85) (end 2 4.85) (layer F.SilkS) (width 0.15))
+  (pad "" np_thru_hole circle (at 0 3.55) (size 3.7 3.7) (drill 3.7) (layers *.Cu *.Mask))
+  (pad "" np_thru_hole circle (at 0 -3.55) (size 3.7 3.7) (drill 3.7) (layers *.Cu *.Mask))
+)
