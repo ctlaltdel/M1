@@ -213,37 +213,37 @@ Wire Wire Line
 	13500 5275 13500 5875
 Wire Wire Line
 	12650 5175 12900 5175
-Text Label 12725 4075 2    50   ~ 0
-A0
 Text Label 13650 4075 2    50   ~ 0
+A0
+Text Label 12725 4075 2    50   ~ 0
 A1
-Text Label 12725 4175 2    50   ~ 0
-A2
 Text Label 13650 4175 2    50   ~ 0
+A2
+Text Label 12725 4175 2    50   ~ 0
 A3
-Text Label 12725 4275 2    50   ~ 0
-A4
 Text Label 13650 4275 2    50   ~ 0
+A4
+Text Label 12725 4275 2    50   ~ 0
 A5
-Text Label 12725 4375 2    50   ~ 0
-A6
 Text Label 13650 4375 2    50   ~ 0
+A6
+Text Label 12725 4375 2    50   ~ 0
 A7
-Text Label 12725 4675 2    50   ~ 0
-A8
 Text Label 13650 4675 2    50   ~ 0
+A8
+Text Label 12725 4675 2    50   ~ 0
 A9
-Text Label 12775 4775 2    50   ~ 0
-A10
 Text Label 13650 4775 2    50   ~ 0
+A10
+Text Label 12775 4775 2    50   ~ 0
 A11
-Text Label 12775 4875 2    50   ~ 0
-A12
 Text Label 13650 4875 2    50   ~ 0
+A12
+Text Label 12775 4875 2    50   ~ 0
 A13
-Text Label 12775 4975 2    50   ~ 0
-A14
 Text Label 13650 4975 2    50   ~ 0
+A14
+Text Label 12775 4975 2    50   ~ 0
 A15
 Connection ~ 13500 4575
 Wire Wire Line
@@ -252,11 +252,9 @@ Wire Wire Line
 	13400 4975 13650 4975
 Wire Wire Line
 	13400 5375 13900 5375
-Text Label 13700 5375 0    50   ~ 0
+Text Label 12400 5375 0    50   ~ 0
 nPCOE
-Wire Wire Line
-	13400 5575 13900 5575
-Text Label 13700 5575 0    50   ~ 0
+Text Label 12400 5575 0    50   ~ 0
 nADROE
 Wire Wire Line
 	13400 6675 13700 6675
@@ -274,21 +272,21 @@ Wire Wire Line
 	12900 6875 12625 6875
 Wire Wire Line
 	12900 6975 12625 6975
-Text Label 13575 6675 0    50   ~ 0
-D6
-Text Label 13575 6775 0    50   ~ 0
-D4
-Text Label 13575 6875 0    50   ~ 0
-D2
-Text Label 13575 6975 0    50   ~ 0
-D0
 Text Label 12625 6675 0    50   ~ 0
-D7
+D6
 Text Label 12625 6775 0    50   ~ 0
-D5
+D4
 Text Label 12625 6875 0    50   ~ 0
-D3
+D2
 Text Label 12625 6975 0    50   ~ 0
+D0
+Text Label 13625 6675 0    50   ~ 0
+D7
+Text Label 13625 6775 0    50   ~ 0
+D5
+Text Label 13625 6875 0    50   ~ 0
+D3
+Text Label 13625 6975 0    50   ~ 0
 D1
 $Comp
 L 74xx:74LS30 U3
@@ -583,7 +581,7 @@ Wire Wire Line
 	3900 6800 3900 6900
 Wire Wire Line
 	12900 5375 12400 5375
-Text Label 12400 5375 0    50   ~ 0
+Text Label 13750 5375 0    50   ~ 0
 nWR
 $Comp
 L Memory_RAM:CY62256-70PC U2
@@ -1027,4 +1025,12 @@ Wire Wire Line
 	12900 5875 12400 5875
 Text Label 12400 5875 0    50   ~ 0
 nMEN
+Text Notes 12025 10375 0    197  ~ 0
+M1 - Memory
+Text Notes 15425 11075 0    79   ~ 0
+A
+Text Notes 12975 11075 0    79   ~ 0
+06/2020
+Wire Wire Line
+	12900 5575 12400 5575
 $EndSCHEMATC

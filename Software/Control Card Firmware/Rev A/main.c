@@ -39,65 +39,71 @@ void set_data_bus_value(unsigned char value);
 void load_address_hi_register(unsigned int value);
 void load_address_lo_register(unsigned int value);
 void load_address_register(unsigned int value);
+void load_temp_register(unsigned int value);
+void init(void);
+void reset(void);
+void incr_pc(void);
+void set_temp_register_output(void);
+void set_temp_register_hi_z(void);
 
 int main(void) {
-	unsigned int i;
+	unsigned int i=0, j;
 
     stdout = &mystdout;
     usart_init (0);
     printf("Hello world!\n");
 
-	DDRF = 0x00;
+	init();
+	load_temp_register(0x0);
+
+	for(j=0; j<=0x5500; j++)
+	{
+		load_address_register(i);
+		load_temp_register(~(i>>8));
+		incr_pc();
+		i++;
+//		_delay_ms(2);
+	}
+
+	set_temp_register_output();
+	PORTC &= ~(1<<PC0);
+	_NOP();
+	_NOP();
+	PORTC |= 1<<PC0;
+	set_temp_register_hi_z();
+
+//    UCSRB |= (1 << RXCIE); // Enable the USART Receive Complete interrupt (USART_RXC)
+//    sei(); // Enable the Global Interrupt Enable flag so that interrupts can be processed
+
+    return 0;
+}
+
+void init(void)
+{
     DDRB = 0xff;
     DDRC = 0xff;
     DDRG = 0xff;
 
-    PORTC |= 1<<PC7;
-    PORTG &= ~(1<<PG1);
-    PORTG |= 1<<PG1;
+    PORTC |= 1<<PC7;	// deassert nPCOE
+    PORTC |= 1<<PC3;	// deassert nADROE
+    PORTC |= 1<<PC5;	// deassert nTMPOE
 
-    for(i=0; i<146; i++)
-    {
-//       PORTB &= ~(1<<PB5);
-       PORTC &= ~(1<<PC4);
-//       PORTB |= 1<<PB5;
-       PORTC |= 1<<PC4;
-    }
-	i = PINF;
-	printf("-->%d\n", i);
-
-    PORTC &= ~(1<<PC7);
-_NOP();
-_NOP();
-
-	i = PINF;
-       PORTC |= 1<<PC7;
-
-	printf("-->%d\n", i);
-
-while(1);
-//    UCSRB |= (1 << RXCIE); // Enable the USART Receive Complete interrupt (USART_RXC)
-//    sei(); // Enable the Global Interrupt Enable flag so that interrupts can be processed
-
-//    DDRB |= 1<<PB6; /* set PB4 to output */
-//    while(1) {
-//        PORTB |= 1<<PB4; /* LED off */
-//        _delay_ms(1000);
-//        PORTB |= 1<<PB5; /* LED off */
-//        _delay_ms(1000);
-//        PORTB |= 1<<PB6; /* LED off */
-//        _delay_ms(1000);
-
-//        PORTB &= ~(1<<PB4); /* LED on */
-//        _delay_ms(1000);
-//        PORTB &= ~(1<<PB5); /* LED on */
-//        _delay_ms(1000);
-//        PORTB &= ~(1<<PB6); /* LED on */
-//        _delay_ms(1000);
-//    }
-    return 0;
+	reset();
 }
 
+void reset(void)
+{
+    PORTG &= ~(1<<PG1);
+    PORTG |= 1<<PG1;
+}
+
+void incr_pc(void)
+{
+	PORTC &= ~(1<<PC4);
+	_NOP();
+	_NOP();
+	PORTC |= 1<<PC4;
+}
 
 void set_address_bus_mode(int mode)
 {
@@ -146,6 +152,20 @@ void load_address_hi_register(unsigned int value)
 	PORTC |= 1<<PC0;
 }
 
+void set_temp_register_output(void)
+{
+	PORTC &= ~(1<<PC5);
+	_NOP();
+	_NOP();
+}
+
+void set_temp_register_hi_z(void)
+{
+	PORTC |= 1<<PC5;
+	_NOP();
+	_NOP();
+}
+
 void load_address_lo_register(unsigned int value)
 {
 	set_data_bus_value(value);
@@ -155,11 +175,19 @@ void load_address_lo_register(unsigned int value)
 	PORTC |= 1<<PC1;
 }
 
-
 void load_address_register(unsigned int value)
 {
 	load_address_lo_register(value & 0xff);
 	load_address_hi_register(value >> 8);
+}
+
+void load_temp_register(unsigned int value)
+{
+	set_data_bus_value(value);
+	PORTC &= ~(1<<PC2);
+	_NOP();
+	_NOP();
+	PORTC |= 1<<PC2;
 }
 
 void usart_init( uint16_t ubrr) {
